@@ -1,8 +1,8 @@
 # Zarinpal Transaction Library for Laravel
 Just another transaction request library for zarinpal
 
-##laravel ready
-this package is going to work with all kinds of projects, but for laravel i add provider to make it as easy as possible.
+##add provider
+Add provider to providers list in "config/app.php":
 just add :
 ```php
 'providers' => [
@@ -11,7 +11,7 @@ just add :
     ...
 ]
 ```
-to providers list in "config/app.php". and run
+and run
 '`php artisan vendor:publish --provider="Zarinpal\Laravel\ZarinpalServiceProvider"`'
 to add config file to laravel configs directory.
 
@@ -48,4 +48,6 @@ return $test->verify('OK', 4000);
 ##For Developers
 just put 'true' as third parameter of new instance of Zarinpal in both request and verify!
 
+```php
 $test = new Zarinpal('XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',new SoapDriver(), true);
+```
