@@ -21,7 +21,6 @@ class ZarinpalServiceProvider extends ServiceProvider
 
             return new Zarinpal($merchantID, $driver);
         });
-
     }
 
     /**
@@ -30,7 +29,7 @@ class ZarinpalServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/config/Zarinpal.php' => config_path('Zarinpal.php')
+            __DIR__.'/config/Zarinpal.php' => config_path('Zarinpal.php'),
         ]);
     }
 }

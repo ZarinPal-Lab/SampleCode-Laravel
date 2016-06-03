@@ -9,24 +9,25 @@ class SoapDriver implements DriverInterface
 
     private function setWsdlAddress()
     {
-        $url = ($this->debug) ? "sandbox" : "wwww";
+        $url = ($this->debug) ? 'sandbox' : 'wwww';
 
-        $this->wsdlAddress = "https://" . $url . ".zarinpal.com/pg/services/WebGate/wsdl";
+        $this->wsdlAddress = 'https://'.$url.'.zarinpal.com/pg/services/WebGate/wsdl';
 
         return $this->wsdlAddress;
     }
 
     /**
-     * request driver
+     * request driver.
      *
      * @param $inputs
+     *
      * @return array
      */
     public function request($inputs, $debug)
     {
         $this->debug = $debug;
 
-        $client = new \SoapClient($this->setWsdlAddress(), array('encoding' => 'UTF-8'));
+        $client = new \SoapClient($this->setWsdlAddress(), ['encoding' => 'UTF-8']);
         $result = $client->PaymentRequest($inputs);
         if ($result->Status == 100) {
             return ['Authority' => $result->Authority];
@@ -36,14 +37,15 @@ class SoapDriver implements DriverInterface
     }
 
     /**
-     * request driver
+     * request driver.
      *
      * @param $inputs
+     *
      * @return array
      */
     public function requestWithExtra($inputs)
     {
-        $client = new \SoapClient($this->setWsdlAddress(), array('encoding' => 'UTF-8'));
+        $client = new \SoapClient($this->setWsdlAddress(), ['encoding' => 'UTF-8']);
         $result = $client->PaymentRequestWithExtra($inputs);
         if ($result->Status == 100) {
             return ['Authority' => $result->Authority];
@@ -53,16 +55,17 @@ class SoapDriver implements DriverInterface
     }
 
     /**
-     * verify driver
+     * verify driver.
      *
      * @param $inputs
+     *
      * @return array
      */
     public function verify($inputs, $debug)
     {
         $this->debug = $debug;
 
-        $client = new \SoapClient($this->setWsdlAddress(), array('encoding' => 'UTF-8'));
+        $client = new \SoapClient($this->setWsdlAddress(), ['encoding' => 'UTF-8']);
         $result = $client->PaymentVerification($inputs);
 
         dd($result);
@@ -75,14 +78,15 @@ class SoapDriver implements DriverInterface
     }
 
     /**
-     * verify driver
+     * verify driver.
      *
      * @param $inputs
+     *
      * @return array
      */
     public function verifyWithExtra($inputs)
     {
-        $client = new \SoapClient($this->wsdlAddress, array('encoding' => 'UTF-8'));
+        $client = new \SoapClient($this->wsdlAddress, ['encoding' => 'UTF-8']);
         $result = $client->PaymentVerificationWithExtra($inputs);
 
         if ($result->Status == 100) {
@@ -94,6 +98,7 @@ class SoapDriver implements DriverInterface
 
     /**
      * @param mixed $wsdlAddress
+     *
      * @return void
      */
     public function setAddress($wsdlAddress)
