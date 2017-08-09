@@ -64,16 +64,12 @@ class SoapDriver implements DriverInterface
     public function verify($inputs, $debug)
     {
         $this->debug = $debug;
-
         $client = new \SoapClient($this->setWsdlAddress(), ['encoding' => 'UTF-8']);
         $result = $client->PaymentVerification($inputs);
-
-        dd($result);
-
         if ($result->Status == 100) {
-            return ['Status' => 'success', 'RefID' => $result->RefID];
+            return ['Success' => true, 'Authority' => $_GET['Authority'], 'RefID' => $result->RefID];
         } else {
-            return ['Status' => 'error', 'error' => $result->Status];
+            return ['Success' => false];
         }
     }
 
