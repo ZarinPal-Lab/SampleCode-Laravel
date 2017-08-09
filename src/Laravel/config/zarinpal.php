@@ -6,6 +6,6 @@ return [
     | merchantID
     |--------------------------------------------------------------------------
     */
-    'merchantID' => 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',
+    'merchantID' => env('MERCHANT_ID', 'test'),
 
 ];

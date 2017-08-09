@@ -9,7 +9,7 @@ class SoapDriver implements DriverInterface
 
     public function setWsdlAddress()
     {
-        $url = ($this->debug) ? 'sandbox' : 'wwww';
+        $url = ($this->debug) ? 'sandbox' : 'www';
 
         $this->wsdlAddress = 'https://'.$url.'.zarinpal.com/pg/services/WebGate/wsdl';
 
