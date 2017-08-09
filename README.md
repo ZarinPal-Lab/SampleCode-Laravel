@@ -42,7 +42,7 @@ use Zarinpal\Zarinpal;
 $client = new Zarinpal(config('zarinpal.merchantID'),new SoapDriver());
 
 $result = $client->verify('OK', 4000);
-if($result['success']) return 'Success';
+if($result['Success']) return 'Success';
 return 'Payment was not successful!';
 ```
 
