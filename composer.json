@@ -6,16 +6,14 @@
         {
             "name": "Zartosht Sepideman",
             "email": "info@ZartoshtSepideman.com"
+        },
+        {
+            "name": "Saeed Pooyanfar",
+            "email": "saeedp47@gmail.com"
         }
     ],
     "minimum-stability": "stable",
-    "require": {
-        "guzzlehttp/guzzle": "^6.2"
-    },
     "autoload": {
-        "classmap": [
-            "src/Drivers/lib/nusoap.php"
-        ],
         "psr-4": {
             "Zarinpal\\": "src/"
         }
