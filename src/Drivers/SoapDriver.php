@@ -7,7 +7,7 @@ class SoapDriver implements DriverInterface
     private $debug;
     private $wsdlAddress;
 
-    private function setWsdlAddress()
+    public function setWsdlAddress()
     {
         $url = ($this->debug) ? 'sandbox' : 'wwww';
 
