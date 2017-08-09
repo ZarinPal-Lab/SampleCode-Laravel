@@ -41,8 +41,9 @@ use Zarinpal\Zarinpal;
 
 $client = new Zarinpal(config('zarinpal.merchantID'),new SoapDriver());
 
-return $client->verify('OK', 4000);
-//'Status'(index) going to be 'success', 'error' or 'canceled'
+$result = $client->verify('OK', 4000);
+if($result['success']) return 'Success';
+return 'Payment was not successful!';
 ```
 
 ##For Developers
