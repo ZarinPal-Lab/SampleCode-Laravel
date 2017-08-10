@@ -19,16 +19,16 @@ to add config file to laravel configs directory.
 
 ###request
 ```php
-use Zarinpal\Drivers\Soap;
+use Zarinpal\Drivers\SoapDriver;
 use Zarinpal\Zarinpal;
 
-$test = new Zarinpal(config('Zarinpal.merchantID'), new SoapDriver());
+$client = new Zarinpal(config('zarinpal.merchantID'), new SoapDriver());
 
-$answer = $test->request("http://example.com/verify.php", 1000, 'Payment Description');
+$answer = $client->request("http://example.com/verify.php", 4000, 'Payment Description');
 
 //it will redirect to zarinpal to do the transaction or fail and just echo the errors.
 if(isset($answer['Authority'])) {
-    return $test->redirect($answer['Authority']);
+    return $client->redirect($answer['Authority']);
 }
 
 return 'There Was an error!';
@@ -36,18 +36,19 @@ return 'There Was an error!';
 
 ###verify
 ```php
-use Zarinpal\Drivers\Soap;
+use Zarinpal\Drivers\SoapDriver;
 use Zarinpal\Zarinpal;
 
-$test = new Zarinpal(config('Zarinpal.merchantID'),new SoapDriver(), true);
+$client = new Zarinpal(config('zarinpal.merchantID'),new SoapDriver());
 
-return $test->verify('OK', 4000);
-//'Status'(index) going to be 'success', 'error' or 'canceled'
+$result = $client->verify('OK', 4000);
+if($result['Success']) return 'Success';
+return 'Payment was not successful!';
 ```
 
 ##For Developers
 just put 'true' as third parameter of new instance of Zarinpal in both request and verify!
 
 ```php
-$test = new Zarinpal('XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',new SoapDriver(), true);
+$client = new Zarinpal('XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',new SoapDriver(), true);
 ```

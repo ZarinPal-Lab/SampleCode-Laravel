@@ -1,21 +1,15 @@
 {
-    "name": "zartosht/zarinpal",
+    "name": "saeedpooyanfar/zarinpal",
     "description": "just another transaction request system for zarinpal",
     "license": "GPL2",
     "authors": [
         {
-            "name": "Zartosht Sepideman",
-            "email": "info@ZartoshtSepideman.com"
+            "name": "Saeed Pooyanfar",
+            "email": "saeedp47@gmail.com"
         }
     ],
     "minimum-stability": "stable",
-    "require": {
-        "guzzlehttp/guzzle": "^6.2"
-    },
     "autoload": {
-        "classmap": [
-            "src/Drivers/lib/nusoap.php"
-        ],
         "psr-4": {
             "Zarinpal\\": "src/"
         }
