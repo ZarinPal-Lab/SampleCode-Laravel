@@ -69,7 +69,7 @@ class SoapDriver implements DriverInterface
         if ($result->Status == 100) {
             return ['Success' => true, 'Authority' => $_GET['Authority'], 'RefID' => $result->RefID];
         } else {
-            return ['Success' => false];
+            return ['Success' => false, 'Authority' => $_GET['Authority']];
         }
     }
 
