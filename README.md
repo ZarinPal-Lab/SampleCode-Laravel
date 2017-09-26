@@ -19,7 +19,7 @@ to add config file to laravel configs directory.
 
 ###request
 ```php
-use Zarinpal\Drivers\Soap;
+use Zarinpal\Drivers\SoapDriver;
 use Zarinpal\Zarinpal;
 
 $test = new Zarinpal(config('Zarinpal.merchantID'), new SoapDriver());
@@ -36,7 +36,7 @@ return 'There Was an error!';
 
 ###verify
 ```php
-use Zarinpal\Drivers\Soap;
+use Zarinpal\Drivers\SoapDriver;
 use Zarinpal\Zarinpal;
 
 $test = new Zarinpal(config('Zarinpal.merchantID'),new SoapDriver(), true);
